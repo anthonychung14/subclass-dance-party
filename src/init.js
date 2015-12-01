@@ -49,6 +49,15 @@ $(document).ready(function() {
     //$('body').append(dancer.$node);
   });
 
+  //Handling KeyPresses on entire document
+  //left/up/right/down === 37 -> 40
+  $(document).keydown(function(key){
+    if (key.keyCode === 38){
+      for (var i = 0; i < dancers.length; i ++){
+        dancers[i].$node.toggle();
+      }
+    }
+  }); 
 
 });
 
