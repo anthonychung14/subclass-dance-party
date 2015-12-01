@@ -38,17 +38,9 @@
 var Dancer = function (top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps
-  this.step();
   this.setPosition(top, left);
-  
+  this.step();  
   //Dancer.prototype.step.call(this)
-};
-
-Dancer.prototype.step = function() {
-    // the basic dancer doesn't do anything interesting at all on each step,
-    // it just schedules the next step
-    var _this = this;
-    setTimeout(function(){_this.step()}, this.timeBetweenSteps);
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -61,5 +53,41 @@ Dancer.prototype.setPosition = function(top, left) {
     };
     this.$node.css(styleSettings);
 };
+
+
+
+Dancer.prototype.step = function() {
+    // the basic dancer doesn't do anything interesting at all on each step,
+    // it just schedules the next step
+    var _this = this;
+    setTimeout(function(){_this.step()}, this.timeBetweenSteps);
+};
+
+Dancer.prototype.lineUp = function(){
+  var style = {
+    top: $("body").height()/2 ,
+    left: $("body").width()/2
+  };
+  this.$node.css(style);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

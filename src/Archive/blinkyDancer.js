@@ -20,6 +20,7 @@
 */
 var BlinkyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.state = true;
 };
 BlinkyDancer.prototype = Object.create(Dancer.prototype)
 
@@ -29,7 +30,18 @@ BlinkyDancer.prototype.step = function(){
   old();
   */
   Dancer.prototype.step.call(this);
-  this.$node.toggle();
+  if (this.state === true){
+    this.$node.removeClass("dancer");
+    this.$node.removeClass("twoBlinkyDancerOne")
+    this.$node.addClass("twoBlinkyDancerTwo");
+  //  this.$node.toggle();
+    this.state = false;
+  } else {
+    this.$node.removeClass("twoBlinkyDancerTwo");
+    this.$node.addClass("twoBlinkyDancerOne");
+//    this.$node.toggle();
+    this.state = true;
+  }
 
   //setTimeout(function(){this.$node.toggle()}, 0);
 };
