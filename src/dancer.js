@@ -66,7 +66,7 @@ Dancer.prototype.step = function() {
 Dancer.prototype.lineUp = function(){
   var style = {
     top: $("body").height()/2 ,
-    left: $("body").width()/2
+//    left: $("body").width()/2
   };
   this.$node.css(style);
 };
